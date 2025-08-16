@@ -96,21 +96,30 @@
 
 //Function for factorial
 
+// #include <iostream>
+// using namespace std;
+
+// int findFactorial(int num) {
+//     if (num == 0 || num == 1) {
+//         return 1;
+//     }
+//     return num * findFactorial(num - 1);  // recursive call with num-1
+// }
+
+// int main() {
+//     int n;
+//     cout << "Enter a Number: ";
+//     cin >> n;
+//     cout << "Factorial of " << n << " is " << findFactorial(n) << endl;
+//     return 0;
+// }
+
+
+
+
+//Function for Number is prime or Not
+
 #include <iostream>
 using namespace std;
 
-int findFactorial(int num) {
-    if (num == 0 || num == 1) {
-        return 1;
-    }
-    return num * findFactorial(num - 1);  // recursive call with num-1
-}
-
-int main() {
-    int n;
-    cout << "Enter a Number: ";
-    cin >> n;
-    cout << "Factorial of " << n << " is " << findFactorial(n) << endl;
-    return 0;
-}
-
+bool 
