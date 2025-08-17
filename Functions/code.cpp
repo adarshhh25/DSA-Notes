@@ -1,4 +1,4 @@
-//Function
+//  Basic Syntax of a Function
 
 // #include <iostream>
 // using namespace std;
@@ -19,7 +19,7 @@
 
 
 
-//Forward Declaration
+//Forward Declaration of a Function
 
 // #include <iostream>
 // using namespace std;
@@ -37,7 +37,7 @@
 
 
 
-// Function with parameters
+// Function with a parameters
 
 // #include <iostream>
 // using namespace std;
@@ -61,6 +61,7 @@
 
 
 //Function to find product of 2 Numbers
+
 // #include <iostream>
 // using namespace std;
 
@@ -76,6 +77,7 @@
 
 
 //Function to print odd or even 
+
 // #include <iostream>
 // using namespace std;
 
@@ -94,7 +96,7 @@
 
 
 
-//Function for factorial
+//Function to find a factorial
 
 // #include <iostream>
 // using namespace std;
@@ -116,10 +118,151 @@
 
 
 
-
 //Function for Number is prime or Not
 
+// #include <iostream>
+// using namespace std;
+
+// bool isPrime (int n) {
+//    if(n == 1) {
+//     return false;
+//    } else {
+//     for (int i = 2; i < n; i++) {
+//         if(n % i == 0) {
+//             return false;
+//         } 
+//     }
+//     return true;
+//    }
+// }
+
+// int main () {
+//     int num;
+//     cout << "Enter a Number: ";
+//     cin >> num;
+//     cout << (isPrime(num) ? "The Number is a Prime Number" 
+//                           : "The Number is not a Prime Number") 
+//          << endl;
+//     return 0;
+// }
+
+
+
+// Function to find binomial coefficient
+
+// #include <iostream>
+// using namespace std;
+
+// int findFactorial (int num) {
+//     if(num == 1 || num == 0) {
+//         return 1;
+//     }
+//     return num * findFactorial(num - 1);
+// }
+
+// int findbinomialCoefficient (int n, int r) {
+//     int binomial_coefficient = findFactorial(n) / (findFactorial(n - r) * findFactorial(r));
+//     return binomial_coefficient;
+// }
+
+// int main () {
+//    int n, r;
+//    cout << "Enter the Value of n: ";
+//    cin >> n;
+//    cout << "Enter the value of r: ";
+//    cin >> r;
+//   cout << "Binomial Coefficient (nCr) = " << findbinomialCoefficient(n, r) << endl;   return 0;
+// }
+
+
+
+//Function to print prime from 2 to n;
+
+// #include <iostream>
+// using namespace std;
+
+// bool isPrime(int num) {
+//     if(num == 1) {
+//         return false;
+//     }
+//     for(int i = 2; i*i <= num; i++) {
+//        if(num % i == 0) { 
+//         return false;
+//        }
+//     }
+//     return true;
+// }
+
+// void printAllPrimes (int n) {
+//   for(int i = 2; i <= n; i++) {
+//     if(isPrime(i)) {
+//       cout << i << " " << endl;
+//     }
+//   }
+// }
+
+// int main () {
+//     int num;
+//     cout << "Enter to a Number: ";
+//     cin >> num;
+//     printAllPrimes(num);
+//     return 0;
+// }
+
+
+
+//Function to check number is plaindrome or not 
 #include <iostream>
 using namespace std;
 
-bool 
+int reverseNumber (int n) {
+  int res = 0;
+  while(n > 0) {
+    int lastDigit = n % 10;
+    res = res*10 + lastDigit;
+    n = n/10;
+  }
+  return res;
+}
+
+int main () {
+   int number;
+   cout << "Enter a Number: ";
+   cin >> number;
+   int revNumber = reverseNumber(number);
+   if(revNumber == number) {
+    cout << "The Entered Number is a Palindrome";
+   }
+   else {
+     cout << "The Entered Number is not a Palindrome";
+   }
+   return 0;
+}
+
+//Function to print next character
+
+// #include <iostream>
+// using namespace std;
+
+// void printNextCharacter (int ascii) {
+//    if(ascii == 122) {
+//     ascii = 97;
+//     cout << (char)ascii; 
+//    }
+//    else if (ascii == 90) {
+//     ascii = 65;
+//     cout << (char)ascii;
+//    }
+//    else {
+//     ascii++;
+//     cout << (char)ascii;
+//    }
+// }
+
+// int main () {
+//     char ch;
+//     cout << "Enter a Character: ";
+//     cin >> ch;
+//     printNextCharacter((int)ch);
+//     return 0;
+// }
