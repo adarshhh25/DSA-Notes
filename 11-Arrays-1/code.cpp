@@ -116,17 +116,78 @@
 
 
 
-// Reverse an Array without an extra space
+// Reverse an Array with an extra space
+
+// #include <iostream>
+// using namespace std;
+
+// void printArr(int arr[], int n) {
+//   for (int i = 0; i < n ; i++) {
+//     cout << arr[i] << " ";
+//   }
+// }
+
+// int main () {
+//   int arr[] = {5,4,3,9,2};
+//   int n = sizeof(arr) / sizeof(int);
+//   int revArr[n];
+//   for(int i = 0; i < n; i++) {
+//      int j = n-i-1;
+//      revArr[i] = arr[j];
+//   }
+//   for (int i = 0; i < n; i++) {
+//     arr[i] = revArr[i];
+//   }
+//   printArr(arr,n);
+//   return 0;
+// }
+
+
+
+// Reverse an array without extra space
+
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+//   int arr[] = {5,4,3,9,2};
+//   int n = sizeof(arr) / sizeof(int);
+//   for (int i = 0; i < n/2; i++) {
+//     int j = n-i-1;
+//     int value = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = value;
+//   }
+//   for (int i = 0; i < n ; i++) {
+//     cout << arr[i] << " ";
+//   }
+//   return 0;
+// }
+
+
+
+//Another method to reverse an array without an extra space
 
 #include <iostream>
 using namespace std;
 
+void swap (int start, int end, int arr[]) {
+  int temp = arr[start];
+  arr[start] = arr[end];
+  arr[end] = temp;
+}
+
 int main () {
-  int arr[5] = {5,4,3,9,2};
+  int arr[] = {5,4,3,9,2};
   int n = sizeof(arr) / sizeof(int);
-  int revArr[5];
-  for(int i = 0; i < n; i++) {
-    
+  int start = 0, end = n-1;
+  while (start < end){
+    swap(start, end, arr);
+    start++;
+    end--;
+  }
+  for (int i = 0; i < n ; i++) {
+    cout << arr[i] << " ";
   }
   return 0;
 }
