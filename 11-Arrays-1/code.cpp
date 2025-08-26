@@ -168,26 +168,55 @@
 
 //Another method to reverse an array without an extra space
 
+// #include <iostream>
+// using namespace std;
+
+// void swap (int start, int end, int arr[]) {
+//   int temp = arr[start];
+//   arr[start] = arr[end];
+//   arr[end] = temp;
+// }
+
+// int main () {
+//   int arr[] = {5,4,3,9,2};
+//   int n = sizeof(arr) / sizeof(int);
+//   int start = 0, end = n-1;
+//   while (start < end){
+//     swap(start, end, arr);
+//     start++;
+//     end--;
+//   }
+//   for (int i = 0; i < n ; i++) {
+//     cout << arr[i] << " ";
+//   }
+//   return 0;
+// }
+
+
+
+//Binary Search
+
 #include <iostream>
 using namespace std;
 
-void swap (int start, int end, int arr[]) {
-  int temp = arr[start];
-  arr[start] = arr[end];
-  arr[end] = temp;
+void findKey(int left, int right, int key, int arr[]) {
+  int mid = (left + right)/2;
+  if(arr[mid] == key) {
+    cout << "Found Key at " << mid ;
+  }
+  else if (arr[mid] > key) {
+    findKey(left, mid-1, key, arr);
+  } 
+  else {
+     left = mid;
+    findKey(mid+1, right, key, arr);
+  }
 }
 
 int main () {
-  int arr[] = {5,4,3,9,2};
+  int arr[] = {2,4,6,8,10,12,14,16};
   int n = sizeof(arr) / sizeof(int);
-  int start = 0, end = n-1;
-  while (start < end){
-    swap(start, end, arr);
-    start++;
-    end--;
-  }
-  for (int i = 0; i < n ; i++) {
-    cout << arr[i] << " ";
-  }
+  int key = 14;
+  findKey(14, n-1, key, arr);
   return 0;
 }
