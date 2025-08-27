@@ -199,24 +199,28 @@
 #include <iostream>
 using namespace std;
 
-void findKey(int left, int right, int key, int arr[]) {
-  int mid = (left + right)/2;
-  if(arr[mid] == key) {
-    cout << "Found Key at " << mid ;
-  }
-  else if (arr[mid] > key) {
-    findKey(left, mid-1, key, arr);
-  } 
-  else {
-     left = mid;
-    findKey(mid+1, right, key, arr);
-  }
+int calculateMid(int start, int end) {
+  int mid = (start + end) / 2;
+  return mid;
+}
+
+void findKey(int key, int arr[]) {
+int n = sizeof(arr)/sizeof(int);
+int mid = calculateMid(0, n-1);
+if() {
+
+} else if () {
+
+} 
+else {
+
+}
 }
 
 int main () {
   int arr[] = {2,4,6,8,10,12,14,16};
   int n = sizeof(arr) / sizeof(int);
   int key = 14;
-  findKey(14, n-1, key, arr);
+  findKey(key, arr);
   return 0;
 }
