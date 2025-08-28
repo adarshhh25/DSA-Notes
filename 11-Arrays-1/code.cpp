@@ -196,31 +196,60 @@
 
 //Binary Search
 
+// #include <iostream>
+// using namespace std;
+
+// int findKey(int key, int arr[], int n) {
+// int start = 0, end = n-1;
+// while (start <= end) {
+//   int mid = (start + end) /2;
+//   if(arr[mid] == key) {
+//     return mid;
+//   }
+//   else if (arr[mid] < key) {
+//     start = mid + 1;
+//   }
+//   else {
+//     end = mid - 1;
+//   }
+// }
+// return -1;
+// }
+
+// int main () {
+//   int arr[] = {2,4,6,8,10,12,14,16};
+//   int n = sizeof(arr) / sizeof(int);
+//   int key = 46;
+//   cout << "The Key is Found at Index: " << findKey(key, arr, n);
+//   return 0;
+// }
+
+
+
+// Pointer Arithmetic
+
 #include <iostream>
 using namespace std;
 
-int calculateMid(int start, int end) {
-  int mid = (start + end) / 2;
-  return mid;
-}
-
-void findKey(int key, int arr[]) {
-int n = sizeof(arr)/sizeof(int);
-int mid = calculateMid(0, n-1);
-if() {
-
-} else if () {
-
-} 
-else {
-
-}
-}
-
 int main () {
-  int arr[] = {2,4,6,8,10,12,14,16};
-  int n = sizeof(arr) / sizeof(int);
-  int key = 14;
-  findKey(key, arr);
+  // int x = 5;
+  // int *ptr = &x;
+  // // cout << ptr << endl;
+  // // ptr++;
+  // // cout << ptr << endl;
+  // // ptr--;
+  // // cout << ptr << endl;
+  // cout << ptr << endl;
+  // ptr = ptr + 3;
+  // cout << (ptr - 3) << endl;
+  // // cout << (ptr - 3) << endl;
+  // int arr[] = {1,2,3,4,5};
+  // for (int i = 0; i < 5; i++) {
+  //   cout << *(arr + i) << endl;
+  // }
+  int x = 5, y = 9;
+  int *ptr1 = &x;
+  int *ptr2 = ptr1 + 3;
+  cout <<  ptr2 - ptr1 << endl;
   return 0;
 }
