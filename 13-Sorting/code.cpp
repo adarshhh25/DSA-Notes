@@ -140,3 +140,34 @@
 //     return 0;
 // }
 
+
+
+//Character Sorting
+
+//Insertion Sort
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {'f', 'b', 'a', 'e', 'c', 'd'};
+    int n = sizeof(arr) / sizeof(int);
+
+    for (int i = 1; i < n; i++) {
+        int currValue = arr[i];
+        int j = i - 1;
+
+        while (j >= 0 && arr[j] < currValue) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = currValue; 
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << (char)arr[i];
+        if (i < n - 1) cout << ", ";
+    }
+
+    return 0;
+}
