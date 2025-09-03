@@ -126,6 +126,71 @@
 
 
 //Search in Sorted Matrix
+// TC - O(N^2)
+
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+//     int matrix[4][4] = {
+//         {10, 20, 30, 40},
+//         {15, 25, 35, 45},
+//         {27, 29, 37, 48},
+//         {32, 33, 39, 50}
+//     };
+//     int key = 303;
+//     for(int i = 0; i < 4; i++) {
+//         for(int j = 0; j < 4; j++) {
+//             if(key == matrix[i][j]) {
+//                 cout << "Key Found At " << i << ", " << j;
+//             }
+//         }
+//     }
+//     cout << "Key is not there in the Matrix";
+//     return 0;
+// }
+
+
+
+//Applying Binary Search to all Rows
+
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+//     int matrix[4][4] = {
+//         {10, 20, 30, 40},
+//         {15, 25, 35, 45},
+//         {27, 29, 37, 48},
+//         {32, 33, 39, 50}
+//     };
+//     int key = 33;
+//     int i = 0;
+//     while(i < 4) {
+//         int st = 0;
+//         int end = 3;
+//         while(st <= end) {
+//               int mid = (st + end) / 2;
+//               if(matrix[i][mid] == key) {
+//                  cout << "Key Found At " << i << ", " << mid;
+//                  return 0;
+//               }
+//               else if (matrix[i][mid] < key) {
+//                  st = mid + 1;
+//               }
+//               else {
+//                  end = mid - 1;
+//               }
+//         }
+//         i++;
+//     }
+//     cout << "Key Not Found";
+//     return 0;
+// }
+
+
+
+// Stair-Case Search
 
 #include <iostream>
 using namespace std;
@@ -137,14 +202,20 @@ int main () {
         {27, 29, 37, 48},
         {32, 33, 39, 50}
     };
-    int key = 303;
-    for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 4; j++) {
-            if(key == matrix[i][j]) {
-                cout << "Key Found At " << i << ", " << j;
-            }
-        }
+    int key = 33;
+    int row = 0, column = 3;
+    while (row < 4 && column >= 0) {   
+       if(matrix[row][column] == key) {
+        cout << "Key Found At Index : " << row << "," << column;
+        return 0;
+       }
+       else if (matrix[row][column] > key) {
+         column--;
+       }
+       else {
+        row++;
+       }
     }
-    cout << "Key is not there in the Matrix";
+    cout << "Key Not Found";
     return 0;
 }
