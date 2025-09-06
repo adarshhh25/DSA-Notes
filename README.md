@@ -40,17 +40,40 @@ This repository contains my personal notes, code examples, and practice problems
   - Binary search
   - Pointer arithmetic with arrays
 
-## How to Use
+- **12-Arrays-2/**  
+- Printing All Subarrays
+- Maximum Subarray Sum (Brute Force)
+- Maximum Subarray Sum (Slightly Optimized)
+- Kadane’s Algorithm
+- Buy & Sell Stocks (Brute Force)
+- Buy & Sell Stocks (Optimized)
+- Trapping Rain Water
 
+**13-Sorting/**  
+- Bubble Sort  
+- Selection Sort  
+- Insertion Sort  
+- Counting Sort  
+- In-built Sort in C++ (using `std::sort`)  
+- Character Sorting (using insertion sort)
+
+**14-2D-Arrays/**  
+- 2D Array Declaration, Initialization, and Input/Output  
+- Printing 2D Arrays  
+- Spiral Matrix Traversal  
+- Diagonal Sum Calculation  
+- Search in Sorted Matrix (Brute Force)  
+- Row-wise Binary Search in Matrix  
+- Staircase Search in Sorted Matrix  
+- Matrix Pointer Concepts  
+- Counting Occurrences of an Element in 2D Array  
+- Column-wise Printing of
+
+## How to Use
 - Browse each folder to find code examples for the corresponding topic.
 - Each `code.cpp` file is self-contained and can be compiled and run using any standard C++ compiler.
 - Use these notes for revision, practice, or as a reference while learning DSA concepts.
 
----
-
 ## About
-
 This is my personal collection of DSA notes and code snippets.  
 Feel free to use, modify, or share these notes for your own learning journey!
-
----

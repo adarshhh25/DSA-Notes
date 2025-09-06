@@ -192,30 +192,103 @@
 
 // Stair-Case Search
 
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+//     int matrix[4][4] = {
+//         {10, 20, 30, 40},
+//         {15, 25, 35, 45},
+//         {27, 29, 37, 48},
+//         {32, 33, 39, 50}
+//     };
+//     int key = 33;
+//     int row = 0, column = 3;
+//     while (row < 4 && column >= 0) {   
+//        if(matrix[row][column] == key) {
+//         cout << "Key Found At Index : " << row << "," << column;
+//         return 0;
+//        }
+//        else if (matrix[row][column] > key) {
+//          column--;
+//        }
+//        else {
+//         row++;
+//        }
+//     }
+//     cout << "Key Not Found";
+//     return 0;
+// }
+
+
+
+//Matrix Pointer
+
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+//     int matrix[4][4] = {
+//         {10, 20, 30, 40},
+//         {15, 25, 35, 45},
+//         {27, 29, 37, 48},
+//         {32, 33, 39, 50}
+//     };
+//     cout<< matrix << " = " << &matrix[0][0] <<endl;
+//     cout<< matrix + 1 << " = " << &matrix[1][0];
+//     return 0;
+// }
+
+
+
+//some Questions
+
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+//   int arr[2][3] = {{4,7,8}, {8,8,7}};
+//   int count = 0;
+//   for(int i = 0; i < 2; i++) {
+//     for(int j = 0; j < 3; j++) {
+//          if(arr[i][j] == 7) {
+//            count++;
+//          }
+//     }
+//   }
+//   cout << count;
+//   return 0;
+// }
+
+
+
 #include <iostream>
 using namespace std;
-
+ 
 int main () {
-    int matrix[4][4] = {
-        {10, 20, 30, 40},
-        {15, 25, 35, 45},
-        {27, 29, 37, 48},
-        {32, 33, 39, 50}
-    };
-    int key = 33;
-    int row = 0, column = 3;
-    while (row < 4 && column >= 0) {   
-       if(matrix[row][column] == key) {
-        cout << "Key Found At Index : " << row << "," << column;
-        return 0;
-       }
-       else if (matrix[row][column] > key) {
-         column--;
-       }
-       else {
-        row++;
-       }
+    int arr[3][2] = {{100, 100}, 
+                     {89, 82,},
+                     {100, 79}};
+
+    // int new_arr[3][4];
+
+    // for(int i = 0; i < 3; i++) {
+    //     for (int j = 0; j < 4; j++) {
+    //         cin >> new_arr[i][j];
+    //     }
+    // }
+
+    // for(int i = 0; i < 3; i++) {
+    //     for(int j = 0; j < 4; j++) {
+    //         cout << new_arr[i][j] << ", ";
+    //     }
+    //     cout << endl;
+    // }    
+
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 2; j++) {
+            cout << arr[j][i] << ", ";
+        }
+        cout << endl;
     }
-    cout << "Key Not Found";
-    return 0;
 }
