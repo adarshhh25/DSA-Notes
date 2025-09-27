@@ -85,26 +85,100 @@
 
 //Valid Palindrome
 
+// #include <iostream>
+// #include <cstring>
+// using namespace std;
+
+// bool isValidPalindrome(char ch[], int n) {
+//     int st = 0, end = n-1;
+//     while(st < end) {
+//         if(ch[st] != ch[end]) {
+//             cout << "Not a Valid Palindrome\n";
+//             return false;
+//         }
+//         st++;
+//         end--;
+//     }
+//     cout << "Valid Palindrome";
+//     return true;
+// }
+
+// int main () {
+//     char ch[] = "racecar";
+//     isValidPalindrome(ch, strlen(ch));
+//     return 0;
+// }
+
+
+//cstring Functions
+// #include <cstring>
+// strcpy(destination, source) //copies source string to destination
+// strcat(destination, source) //concatenates source string to destination
+// strcmp(str1, str2) //compares two strings and returns 0 if they are equal
+
+
+
+//Basics of Strings in C++
+
+// #include <iostream>
+// #include <cstring>
+// using namespace std;
+
+// int main () {
+//     string str1;
+//     getline(cin, str1);
+//     // cout << str1 << endl;
+//     cout << "The letter is :"<<str1[2]<<endl;
+//     cout << str1[4]<<endl;
+//     return 0;
+// }
+
+
+
+// String Member Function
+// #include <iostream>
+// #include <cstring>  
+// using namespace std;
+ 
+// int main () {
+//     string str1 = "Hello Everyone";
+//     cout << str1.length() << endl;
+//     cout << str1.substr(1, 3) << endl;
+//     cout << str1.find("lo") << endl;    
+//     cout << str1.find("e", 2) << endl;
+//     cout << str1.at(3) <<endl;
+//     return 0;
+// }
+
+
+
+//Anagram Problem
+
 #include <iostream>
-#include <cstring>
+#include <cstring>  
 using namespace std;
 
-bool isValidPalindrome(char ch[], int n) {
-    int st = 0, end = n-1;
-    while(st < end) {
-        if(ch[st] != ch[end]) {
-            cout << "Not a Valid Palindrome\n";
-            return false;
-        }
-        st++;
-        end--;
-    }
-    cout << "Valid Palindrome";
-    return true;
-}
-
 int main () {
-    char ch[] = "racecar";
-    isValidPalindrome(ch, strlen(ch));
+    string str1 = "rat";
+    string str2 = "tar";
+
+     if(str1.length() != str2.length()){
+            cout << "Not an Anagram";
+            return 0;
+    }
+    
+    char count[26] = {0};
+    for(int i = 0; i < str1.length(); i++){
+      count[str1[i] - 'a']++;   
+    }
+
+    for(int i = 0; i < str2.length(); i++){
+        if(count[str2[i] - 'a'] == 0){
+            cout << "Not an Anagram";
+            return 0;
+        }
+        count[str2[i] - 'a']--;
+    }
+    cout << "Valid Anagram";
     return 0;
 }
