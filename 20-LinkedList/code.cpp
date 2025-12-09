@@ -600,4 +600,163 @@ public:
 //         return head;
 //     }
 // };
-///Hello
+
+
+
+///25
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+// class Solution {
+// public:
+//     ListNode* reverseKGroup(ListNode* head, int k) {
+//         //Check if K-Nodes Exist
+//         ListNode* temp = head;
+//         int cnt = 0;
+//         while(cnt < k) {
+//             if(temp == NULL) {
+//                 return head;
+//             }
+//             temp = temp->next;
+//             cnt++;
+//         }
+
+//         //Call for Other Nodes of List
+//         ListNode *prevNode = reverseKGroup(temp, k);
+
+//         //Reverse the current List
+
+//         temp = head;
+//         cnt = 0;
+//         while(cnt < k) {
+//             ListNode* next = temp->next;
+//             temp->next = prevNode;
+//             prevNode = temp;
+//             temp = next;
+//             cnt++;
+//         }
+//         return prevNode;
+//     }
+// };
+
+
+
+///24
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+// class Solution {
+// public:
+//     ListNode* swapPairs(ListNode* head) {
+//         if(!head || !head->next) {
+//             return head;
+//         }
+ 
+//         ListNode* nextNode = head->next;
+//         head->next = swapPairs(nextNode->next);
+//         nextNode->next = head;
+//         return nextNode;
+//     }
+// };
+
+
+
+//146
+// class LRUCache {
+// public:
+     
+//     class Node {
+//       public: 
+//         int key, val;
+//         Node* prev;
+//         Node* next;
+        
+//         Node(int k, int v) {
+//             key = k;
+//             val = v;
+//             prev = next = NULL;
+//         }
+//     };
+
+//     Node* head = new Node(-1, -1);
+//     Node* tail = new Node(-1, -1);
+
+//     unordered_map<int, Node*>m;
+//     int limit;
+
+//     void addNode(Node* newNode) {
+//        Node* oldNext = head->next;
+
+//        head->next = newNode;
+//        oldNext->prev = newNode;
+
+//        newNode->next = oldNext;
+//        newNode->prev = head;
+//     }
+
+//     void delNode(Node* oldNode) {
+//        Node* oldPrev = oldNode->prev;
+//        Node* oldNext = oldNode->next;
+
+//        oldPrev->next = oldNext;
+//        oldNext->prev = oldPrev;
+//     }
+
+//     LRUCache(int capacity) {
+//         limit = capacity;
+//         head->next = tail;
+//         tail->prev = head;
+//     }
+    
+//     int get(int key) {
+//         if(m.find(key) == m.end()) {
+//             return -1;
+//         }
+
+//         Node* ansNode = m[key];
+//         int ans = ansNode->val;
+//         m.erase(key);
+//         delNode(ansNode);
+//         addNode(ansNode);
+//         m[key] = ansNode;
+//         return ans;
+//     }
+    
+//     void put(int key, int value) {
+//         if(m.find(key) != m.end()) {
+//           Node* oldNode = m[key];
+//           delNode(oldNode);
+//           m.erase(key);
+//         }
+
+//         if(m.size() == limit) {
+//           m.erase(tail->prev->key);
+//           delNode(tail->prev);
+//         }
+
+//         Node* newNode = new Node(key, value);
+//         addNode(newNode);
+//         m[key] = newNode;
+//     }
+// };
+
+// /**
+//  * Your LRUCache object will be instantiated and called as such:
+//  * LRUCache* obj = new LRUCache(capacity);
+//  * int param_1 = obj->get(key);
+//  * obj->put(key,value);
+//  */
