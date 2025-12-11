@@ -55,98 +55,161 @@
 
 
 //Stack Implementation using Linked-List
+// #include <iostream>
+// using namespace std;
+
+// // Node structure
+// class Node {
+// public:
+//     int data;       // value
+//     Node* next;     // pointer to next node
+
+//     Node(int x) {
+//         data = x;
+//         next = NULL;
+//     }
+// };
+
+// // Stack class using Linked List
+// class Stack {
+// public:
+//     Node* top;   // top of stack
+
+//     Stack() {
+//         top = NULL;    // initially empty
+//     }
+
+//     // PUSH operation
+//     void push(int x) {
+//         Node* newNode = new Node(x);
+
+//         newNode->next = top;  // new node points to previous top
+//         top = newNode;        // update top
+
+//         cout << "Pushed " << x << endl;
+//     }
+
+//     // POP operation
+//     void pop() {
+//         if (top == NULL) {
+//             cout << "Stack Underflow (Stack is Empty)" << endl;
+//             return;
+//         }
+
+//         Node* temp = top;
+//         cout << "Popped " << top->data << endl;
+
+//         top = top->next;  // move top to next node
+//         delete temp;      // free memory
+//     }
+
+//     // PEEK operation (top element)
+//     void peek() {
+//         if (top == NULL) {
+//             cout << "Stack is Empty" << endl;
+//         } else {
+//             cout << "Top Element = " << top->data << endl;
+//         }
+//     }
+
+//     // Check if stack is empty
+//     bool isEmpty() {
+//         return (top == NULL);
+//     }
+
+//     // Display all elements
+//     void display() {
+//         if (top == NULL) {
+//             cout << "Stack is Empty" << endl;
+//             return;
+//         }
+
+//         cout << "Stack elements (top to bottom): ";
+//         Node* temp = top;
+//         while (temp != NULL) {
+//             cout << temp->data << " ";
+//             temp = temp->next;
+//         }
+//         cout << endl;
+//     }
+// };
+
+// int main() {
+//     Stack s;
+
+//     s.push(10);
+//     s.push(20);
+//     s.push(30);
+
+//     s.display();
+
+//     s.pop();
+//     s.peek();
+
+//     s.display();
+
+//     return 0;
+// }
+
+
+//901
+//My-Approach
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// void span(vector<int> &v, vector<int> &ans) {
+// for(int i = 0; i <= v.size()-1; i++) {
+//     int currPrice = v[i];
+//     int span = 1;
+//     int j = i-1;
+//     while(j < 0 ? false : currPrice >= v[j]) {
+//         span++;
+//         j--;
+//     }
+//     ans.push_back(span);
+// }
+// }
+
+// int main () {
+//     vector<int>v = {100,80,60,70,60,75, 85};
+//     vector<int>ans;
+//     span(v, ans);
+//     for(int i = 0; i < ans.size(); i++) {
+//         cout << ans[i] << " ";
+//     }
+//     return 0;
+// }
+
+
+
 #include <iostream>
+#include <vector>
+#include <stack>
 using namespace std;
 
-// Node structure
-class Node {
-public:
-    int data;       // value
-    Node* next;     // pointer to next node
+int main () {
+    vector<int> price = {100, 80, 60, 70, 60, 75, 85};
+    stack<int> s;
+    vector<int> ans(price.size(), 0);
 
-    Node(int x) {
-        data = x;
-        next = NULL;
-    }
-};
-
-// Stack class using Linked List
-class Stack {
-public:
-    Node* top;   // top of stack
-
-    Stack() {
-        top = NULL;    // initially empty
-    }
-
-    // PUSH operation
-    void push(int x) {
-        Node* newNode = new Node(x);
-
-        newNode->next = top;  // new node points to previous top
-        top = newNode;        // update top
-
-        cout << "Pushed " << x << endl;
-    }
-
-    // POP operation
-    void pop() {
-        if (top == NULL) {
-            cout << "Stack Underflow (Stack is Empty)" << endl;
-            return;
+    for(int i = 0; i < price.size(); i++) {
+        while(s.size() > 0 && price[s.top()] <= price[i]) {
+            s.pop();
         }
 
-        Node* temp = top;
-        cout << "Popped " << top->data << endl;
-
-        top = top->next;  // move top to next node
-        delete temp;      // free memory
-    }
-
-    // PEEK operation (top element)
-    void peek() {
-        if (top == NULL) {
-            cout << "Stack is Empty" << endl;
-        } else {
-            cout << "Top Element = " << top->data << endl;
+        if(s.empty()) {
+          ans[i] = i + 1;
         }
-    }
-
-    // Check if stack is empty
-    bool isEmpty() {
-        return (top == NULL);
-    }
-
-    // Display all elements
-    void display() {
-        if (top == NULL) {
-            cout << "Stack is Empty" << endl;
-            return;
+        else {
+            ans[i] = i - s.top();
         }
-
-        cout << "Stack elements (top to bottom): ";
-        Node* temp = top;
-        while (temp != NULL) {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-        cout << endl;
+        s.push(i);
     }
-};
 
-int main() {
-    Stack s;
-
-    s.push(10);
-    s.push(20);
-    s.push(30);
-
-    s.display();
-
-    s.pop();
-    s.peek();
-
-    s.display();
+     for(int val : ans) {
+            cout << val << " ";
+     }
 
     return 0;
 }
