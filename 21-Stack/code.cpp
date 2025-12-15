@@ -372,3 +372,86 @@
 //         return s.top().second;
 //     }
 // };
+
+
+
+////My-Approch (Brute-Force). This will not pass time-complexity on leetcode
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int maxArea(vector <int> &heights) {
+//     int n = heights.size();
+//     int maxArea = 0;
+
+//     for(int i = 0; i < n; i++) {
+//         int width = 1;
+
+//              ///Left Side of Rectangle
+//              int j = i-1;
+//              while(heights[j] >= heights[i] && j >= 0) {
+//                 width++;
+//                 j--;
+//              }
+
+//              ///Right Side of Rectangle
+//              j = i+1;
+//              while(heights[j] >= heights[i] && j <= n-1) {
+//                 width++;
+//                 j++;
+//              }
+//              maxArea = max(maxArea, heights[i] * width);
+//     }
+//     return maxArea;
+// }
+
+// int main () {
+//     vector<int> heights = {2, 1, 5, 6, 2, 3};
+//     int result =  maxArea(heights);
+//     cout << result;
+//     return 0;
+// }
+
+
+
+// ////
+// class Solution {
+// public:
+//     int largestRectangleArea(vector<int>& heights) {
+//         int n = heights.size();
+//         vector<int> right(n, 0);
+//         vector<int> left(n, 0);
+//         stack<int> s;
+
+//         //Right Smaller Nearest Value
+//         for(int i = n-1; i >= 0; i--) {
+//             while(s.size() > 0 && heights[s.top()] >= heights[i]) {
+//                 s.pop();
+//             }
+//             right[i] = s.empty() ? n : s.top();
+//             s.push(i);
+//         }
+
+//         //Emptying the Stack
+//         while(!s.empty()) {
+//             s.pop();
+//         }
+
+//         //Left Smaller Nearest Value
+//         for(int i = 0; i <= n-1; i++) {
+//             while(s.size() > 0 && heights[s.top()] >= heights[i]) {
+//                 s.pop();
+//             }
+//             left[i] = s.empty() ? -1 : s.top();
+//             s.push(i);
+//         }
+
+//         int ans = 0;
+//         for(int i = 0; i < n; i++) {
+//             int width = right[i] - left[i] - 1;
+//             int currArea = heights[i] * width;
+//             ans = max(ans, currArea);
+//         }
+//         return ans;
+//     }
+// };
