@@ -190,3 +190,60 @@
 //     trap(heights, n);
 //     return 0;
 // }
+
+
+
+///Trapping Rainwater(42) with SC => O(n)
+
+// class Solution {
+// public:
+//     int trap(vector<int>& height) {
+//         int n = height.size();
+//         vector<int> left_max(n, 0);
+//         vector<int> right_max(n, 0);
+
+//         left_max[0] = height[0];
+//         right_max[n-1] = height[n-1];
+
+//         for(int i = 1; i < n; i++) {
+//            left_max[i] = max(left_max[i-1], height[i]);
+//         } 
+
+//         for(int i = n-2; i >= 0; i--) {
+//             right_max[i] = max(right_max[i+1], height[i]);
+//         }
+        
+//         int ans = 0;
+//         for(int i = 0; i < n; i++) {
+//             ans += min(left_max[i], right_max[i]) - height[i];
+//         }
+//         return ans;
+//     }
+// };
+
+
+
+///Same Question with SC => O(1) [Two Pointer Approch]
+// class Solution {
+// public:
+//     int trap(vector<int>& height) {
+//        int n = height.size();
+//        int ans = 0;
+//        int l = 0, r = n-1;
+//        int lmax = 0, rmax = 0;
+
+//        while (l < r) {
+//          lmax = max(lmax, height[l]);
+//          rmax = max(rmax, height[r]);
+
+//          if(lmax < rmax) {
+//             ans += lmax - height[l];
+//             l++;
+//          } else {
+//             ans += rmax - height[r];
+//             r--;
+//          }
+//        }
+//        return ans;
+//     }
+// };
