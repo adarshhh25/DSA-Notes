@@ -39,6 +39,7 @@ This repository contains my personal notes, code examples, and practice problems
   - Reversing arrays (with and without extra space)
   - Binary search
   - Pointer arithmetic with arrays
+  - PlusOne-(LeetCode - 66)
 
 - **12-Arrays-2/**  
 - Printing All Subarrays
