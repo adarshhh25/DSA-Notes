@@ -288,4 +288,98 @@
 //     }
 // };
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
+// int main() {
+//     vector<int> ratings = {0, 2, 4, 3, 2, 1, 1, 1,3, 5, 6, 4, 0, 0};
+//     int n = ratings.size();
+
+//     int i = 1;
+//     int sum = 1;   // first child gets 1 candy
+
+//     while (i < n) {
+
+//         // Case 1: equal ratings
+//         if (ratings[i] == ratings[i - 1]) {
+//             sum += 1;
+//             i++;
+//             continue;
+//         }
+
+//         // Case 2: increasing slope
+//         int up = 1;
+//         while (i < n && ratings[i] > ratings[i - 1]) {
+//             up++;
+//             sum += up;
+//             i++;
+//         }
+
+//         // Case 3: decreasing slope
+//         int down = 1;
+//         while (i < n && ratings[i] < ratings[i - 1]) {
+//             sum += down;
+//             down++;
+//             i++;
+//         }
+
+//         // Peak adjustment
+//         if (down > up) {
+//             sum += (down - up);
+//         }
+//     }
+
+//     cout << sum;
+//     return 0;
+// }
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+struct Item {
+    int value;
+    int weight;
+};
+
+// Comparator: sort by value/weight ratio (descending)
+bool compare(Item a, Item b) {
+    double r1 = (double)a.value / a.weight;
+    double r2 = (double)b.value / b.weight;
+    return r1 > r2;
+}
+
+int main() {
+    vector<Item> items = {
+        {60, 10},
+        {100, 20},
+        {120, 30}
+    };
+
+    int W = 50;  // Knapsack capacity
+
+    sort(items.begin(), items.end(), compare);
+
+    double totalValue = 0.0;
+    int remainingWeight = W;
+
+    for (int i = 0; i < items.size() && remainingWeight > 0; i++) {
+        if (items[i].weight <= remainingWeight) {
+            // Take whole item
+            remainingWeight -= items[i].weight;
+            totalValue += items[i].value;
+        } else {
+            // Take fraction
+            double fraction = (double)remainingWeight / items[i].weight;
+            totalValue += items[i].value * fraction;
+            remainingWeight = 0;
+        }
+    }
+
+    cout << "Maximum value in Knapsack = " << totalValue << endl;
+    return 0;
+}
