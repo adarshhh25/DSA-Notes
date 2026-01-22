@@ -1,4 +1,4 @@
-///455 Assign Cookies
+//Assign Cookies (455)
 // class Solution {
 // public:
 //     int findContentChildren(vector<int>& greed, vector<int>& size) {
@@ -20,7 +20,7 @@
 
 
 
-///860 Lemonade Change
+///Lemonade Change (860)
 // class Solution {
 // public:
 //     bool lemonadeChange(vector<int>& bills) {
@@ -288,6 +288,9 @@
 //     }
 // };
 
+
+
+//Candy Problem (135)
 // #include <iostream>
 // #include <vector>
 // using namespace std;
@@ -336,50 +339,51 @@
 
 
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+//Fractional Knapsack
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
 
-struct Item {
-    int value;
-    int weight;
-};
+// struct Item {
+//     int value;
+//     int weight;
+// };
 
-// Comparator: sort by value/weight ratio (descending)
-bool compare(Item a, Item b) {
-    double r1 = (double)a.value / a.weight;
-    double r2 = (double)b.value / b.weight;
-    return r1 > r2;
-}
+// // Comparator: sort by value/weight ratio (descending)
+// bool compare(Item a, Item b) {
+//     double r1 = (double)a.value / a.weight;
+//     double r2 = (double)b.value / b.weight;
+//     return r1 > r2;
+// }
 
-int main() {
-    vector<Item> items = {
-        {60, 10},
-        {100, 20},
-        {120, 30}
-    };
+// int main() {
+//     vector<Item> items = {
+//         {60, 10},
+//         {100, 20},
+//         {120, 30}
+//     };
 
-    int W = 50;  // Knapsack capacity
+//     int W = 50;  // Knapsack capacity
 
-    sort(items.begin(), items.end(), compare);
+//     sort(items.begin(), items.end(), compare);
 
-    double totalValue = 0.0;
-    int remainingWeight = W;
+//     double totalValue = 0.0;
+//     int remainingWeight = W;
 
-    for (int i = 0; i < items.size() && remainingWeight > 0; i++) {
-        if (items[i].weight <= remainingWeight) {
-            // Take whole item
-            remainingWeight -= items[i].weight;
-            totalValue += items[i].value;
-        } else {
-            // Take fraction
-            double fraction = (double)remainingWeight / items[i].weight;
-            totalValue += items[i].value * fraction;
-            remainingWeight = 0;
-        }
-    }
+//     for (int i = 0; i < items.size() && remainingWeight > 0; i++) {
+//         if (items[i].weight <= remainingWeight) {
+//             // Take whole item
+//             remainingWeight -= items[i].weight;
+//             totalValue += items[i].value;
+//         } else {
+//             // Take fraction
+//             double fraction = (double)remainingWeight / items[i].weight;
+//             totalValue += items[i].value * fraction;
+//             remainingWeight = 0;
+//         }
+//     }
 
-    cout << "Maximum value in Knapsack = " << totalValue << endl;
-    return 0;
-}
+//     cout << "Maximum value in Knapsack = " << totalValue << endl;
+//     return 0;
+// }
