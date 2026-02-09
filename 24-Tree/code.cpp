@@ -260,3 +260,99 @@
 //         return ans;
 //     }
 // };
+
+
+
+///Top View of Binary Tree
+// class Solution {
+// public:
+//     vector<int> topView(Node *root) {
+//         vector<int> ans;
+//         if (root == NULL) return ans;
+
+//         queue<pair<Node*, int>> q;   // FIX 1
+//         map<int, int> m;
+
+//         q.push({root, 0});
+
+//         while (!q.empty()) {         // FIX 2
+//             auto frontNode = q.front();
+//             q.pop();
+
+//             Node* curr = frontNode.first;
+//             int currHD = frontNode.second;
+
+//             if (m.find(currHD) == m.end()) {
+//                 m[currHD] = curr->data;
+//             }
+
+//             if (curr->left)
+//                 q.push({curr->left, currHD - 1});
+
+//             if (curr->right)
+//                 q.push({curr->right, currHD + 1});
+//         }
+
+//         for (auto i : m) {
+//             ans.push_back(i.second);
+//         }
+
+//         return ans;                 
+//     }
+// };
+
+
+
+// ///Bottom View of a binary Tree
+// class Solution {
+//   public:
+//     vector<int> bottomView(Node *root) {
+//        vector<int> ans;
+//        if (!root) return ans;
+       
+//        queue<pair<Node*, int>>q;
+//        map<int, int> mp;
+       
+//        q.push({root, 0});
+       
+//        while(!q.empty()) {
+//            Node* curr = q.front().first;
+//            int currHD = q.front().second;
+//            q.pop();
+           
+//            mp[currHD] = curr->data;
+           
+//            if(curr->left) {
+//                q.push({curr->left, currHD-1});
+//            }
+           
+//            if(curr->right) {
+//                q.push({curr->right, currHD+1});
+//            }
+//        }
+       
+//        for(auto it : mp) {
+//            ans.push_back(it.second);
+//        }
+       
+//        return ans;
+//     }
+// };
+
+
+
+////Kth Level in a binary Tree
+// void kthLevel(Node* root, int K) {
+
+//     if(root == NULL) {
+//         return;
+//     }
+
+//     if(K == 1) {
+//         cout << root->data << " ";
+//         return;
+//     }
+
+//     kthLevel(root, K-1);
+//     kthLevel(root, K-1);
+// }
