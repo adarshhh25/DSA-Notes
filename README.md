@@ -8,6 +8,11 @@ This repository contains my personal notes, code examples, and practice problems
 
 ## Structure
 
+- **07-LeetcodeDaily/**  
+  Daily LeetCode practice problems:
+  - Plus One (LeetCode 66)
+  - N-Repeated Element in Size 2N Array (LeetCode 961)
+
 - **8-Binary_Number_System/**  
   Code for binary and decimal number system conversions:
   - Binary to Decimal conversion
@@ -179,7 +184,45 @@ This repository contains my personal notes, code examples, and practice problems
 - Sliding Window Maximum (LeetCode 239)
 
 **23-Greedy/**  
-- *(Coming Soon - Topics to be added)*
+- Assign Cookies (LeetCode 455)
+- Lemonade Change (LeetCode 860)
+- Shortest Job First
+- Jump Game (LeetCode 55)
+- Jump Game II (LeetCode 45)
+- Job Sequencing Problem
+- N-Meetings in One Room
+- Minimum Number of Platforms Required for Railway Station (Brute Force & Optimized)
+- Candy Problem (LeetCode 135)
+- Fractional Knapsack
+
+**24-Tree/**  
+- Binary Tree Node Structure (Class-Based)
+- Build Tree from Preorder Traversal
+- Preorder Traversal
+- Inorder Traversal
+- Postorder Traversal
+- Level Order Traversal (Line by Line)
+- Maximum Depth of Binary Tree (LeetCode 104)
+- Count Nodes in Binary Tree
+- Sum of All Nodes
+- Same Tree (LeetCode 100)
+- Subtree of Another Tree (LeetCode 572)
+- Diameter of Binary Tree (LeetCode 543)
+- Top View of Binary Tree (GFG)
+- Bottom View of Binary Tree (GFG)
+- Kth Level in Binary Tree
+- Lowest Common Ancestor of Binary Tree (LeetCode 236)
+- Construct Binary Tree from Preorder and Inorder Traversal (LeetCode 105)
+- Binary Tree Paths (LeetCode 257)
+- Transform to Sum Tree (GFG)
+
+**25-BST/**  
+- BST Node Structure (Class-Based)
+- Build BST from Array
+- Inorder Traversal (Sorted Order)
+- Search in BST (LeetCode 700)
+- Insert into BST (LeetCode 701)
+- Delete Node in BST (LeetCode 450)
 
 ---
 
@@ -196,6 +239,7 @@ This repository contains my personal notes, code examples, and practice problems
 
 | Topic | Status |
 |-------|--------|
+| LeetCode Daily | ✅ Completed |
 | Binary Number System | ✅ Completed |
 | Functions | ✅ Completed |
 | Pointers | ✅ Completed |
@@ -211,7 +255,9 @@ This repository contains my personal notes, code examples, and practice problems
 | Linked List | ✅ Completed |
 | Stack | ✅ Completed |
 | Queue | ✅ Completed |
-| Greedy | 🔄 In Progress |
+| Greedy | ✅ Completed |
+| Tree | ✅ Completed |
+| BST | ✅ Completed |
 
 ---
 

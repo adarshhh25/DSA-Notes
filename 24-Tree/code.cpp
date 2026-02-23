@@ -356,3 +356,163 @@
 //     kthLevel(root, K-1);
 //     kthLevel(root, K-1);
 // }
+
+
+
+// Leetcode:- 236 Lowest Common Ancestor of a Binary Tree
+//    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+//         if(root == NULL) {
+//             return NULL;
+//         }
+
+//         if(root->val == p->val || root->val == q->val) {
+//             return root;
+//         }
+
+//         TreeNode* leftLCA = lowestCommonAncestor(root->left, p, q);
+//         TreeNode* rightLCA = lowestCommonAncestor(root->right, p, q);
+
+//         if(leftLCA && rightLCA) {
+//             return root;
+//         } 
+//         else if(leftLCA != NULL) {
+//             return leftLCA;
+//         }
+//         else {
+//             return rightLCA;
+//         }
+// }
+
+
+
+///Leetcode :- 105
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+// class Solution {
+// public:
+
+//     int search(vector<int>& inorder, int left, int right, int val) {
+//         for(int i = left; i <= right; i++) {
+//             if(inorder[i] == val) {
+//                 return i;
+//             }
+//         }
+//         return -1;
+//     }
+
+//     TreeNode* helper(vector<int>& preorder, vector<int>& inorder, int& preIdx, int left, int right) {
+//            if(left > right) {
+//             return NULL;
+//            }
+           
+//            TreeNode* root = new TreeNode(preorder[preIdx]);
+
+//            int inIdx = search(inorder, left, right, preorder[preIdx]);
+//            preIdx++;
+
+//            root->left = helper(preorder, inorder, preIdx, left, inIdx-1);
+//            root->right = helper(preorder, inorder, preIdx, inIdx+1, right);
+           
+//            return root;
+//     }
+
+//     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+//         int preIdx = 0;
+//         return helper(preorder, inorder, preIdx, 0, inorder.size()-1);
+//     }
+// };
+
+
+
+///Leetcode :- 257
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+// class Solution {
+// public:
+    
+//     void allPaths(TreeNode* root, string path, vector<string> & ans) {
+//          if(root->left == NULL && root->right == NULL) {
+//             ans.push_back(path);
+//             return;
+//          }
+        
+//          if(root->left) {
+//             allPaths(root->left, path+"->"+to_string(root->left->val), ans);
+//          }
+
+//          if(root->right) {
+//             allPaths(root->right, path+"->"+to_string(root->right->val), ans);
+//          }
+
+//     }
+
+//     vector<string> binaryTreePaths(TreeNode* root) {
+//         vector<string> ans;
+//         string path = to_string(root->val);
+//         allPaths(root, path, ans);
+//         return ans;
+//     }
+// };
+
+
+
+///GFG Transform to sum tree
+// class Solution {
+//   public:
+  
+//     int solve(Node* root)
+//     {
+//         if(root == NULL)
+//             return 0;
+        
+//         int old = root->data;
+        
+//         int left = solve(root->left);
+//         int right = solve(root->right);
+        
+//         // Update current node
+//         root->data = left + right;
+        
+//         // Return sum including original value
+//         return root->data + old;
+//     }
+
+//     void toSumTree(Node *node) {
+//         solve(node);
+//     }
+// };
+
+
+
+//Playlist sumTree question
+
+// int sumTree(Node* root) {
+//     if(root == NULL) {
+//         return 0;
+//     }
+
+//     int leftSum = sumTree(root->left);
+//     int rightSum = sumTree(root->right);
+   
+//     root->data += (leftSum + rightSum);
+
+//     return root->data;
+// }
