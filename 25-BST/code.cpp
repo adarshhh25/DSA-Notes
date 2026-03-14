@@ -269,3 +269,188 @@ int main () {
 //         return 0;
 //     }
 // };
+
+
+///Leetcode:- 235 Lowest Common Ancestor of a BST
+// class Solution {
+// public:
+//     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+//         if(root == NULL) return NULL;
+
+//         if(p->val < root->val && q->val < root->val) {
+//             return lowestCommonAncestor(root->left, p, q);
+//         } 
+//         else if (p->val > root->val && q->val > root->val) {
+//             return lowestCommonAncestor(root->right, p, q);
+//         } 
+//         else {
+//             return root;
+//         }
+      
+//     }
+// };
+
+
+
+///Leetcode:- 1008 Construct a BST from preorder traversal
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+// class Solution {
+// public:
+    
+//     TreeNode* helper(vector<int>& preorder, int & i, int bound) {
+//         if(i >= preorder.size() || preorder[i] > bound) {
+//              return NULL;
+//         }
+//         TreeNode* root = new TreeNode(preorder[i++]);
+//         root->left = helper(preorder, i, root->val);
+//         root->right = helper(preorder, i, bound);
+//         return root;
+//     }
+
+//     TreeNode* bstFromPreorder(vector<int>& preorder) {
+//         int i = 0;
+//         return helper(preorder, i, INT_MAX);
+//     }
+// };
+
+
+
+///Gfg:- Merge two BSTs
+class Solution {
+  public:
+    
+    void inorder(Node* root, vector<int>& arr) {
+        if(root == NULL) return;
+        inorder(root->left, arr);
+        arr.push_back(root->data);
+        inorder(root->right, arr);
+    }
+    
+    
+    vector<int> merge(Node *root1, Node *root2) {
+      vector<int> arr1, arr2;
+      inorder(root1, arr1);
+      inorder(root2, arr2);
+      vector<int> temp;
+      
+      int i = 0, j = 0;
+      while(i < arr1.size() && j < arr2.size()) {
+      if(arr1[i] < arr2[j]) {
+          temp.push_back(arr1[i++]);
+      } else {
+          temp.push_back(arr2[j++]);
+      }
+    }
+    
+    while(i < arr1.size()) {
+        temp.push_back(arr1[i++]);
+    }
+    
+    while(j < arr2.size()) {
+        temp.push_back(arr2[j++]);
+    }
+    
+    return temp;
+    }
+};
+
+
+
+///Leetcode:- 99 Recover BST
+// class Solution {
+// public:
+//     void recoverTree(TreeNode* root) {
+//       TreeNode* prev = NULL;
+//       TreeNode* first = NULL;
+//       TreeNode* second = NULL;
+
+//       while(root != NULL) {
+//         if(root->left == NULL) {
+//           if(prev != NULL && prev->val > root->val) {
+//             if(first == NULL) {
+//                 first = prev;
+//             }
+//             second = root;
+//           }
+//           prev = root;
+//           root = root->right;
+//         } else {
+//             TreeNode* IP = root->left;
+//             while(IP->right != NULL && IP->right != root) {
+//                 IP = IP->right;
+//             }
+//             if(IP->right == NULL) {
+//                IP->right = root;
+//                root = root->left;
+//             } else {
+//                if(prev != NULL && prev->val > root->val) {
+//                     if(first == NULL) {
+//                         first = prev;
+//                     }
+//                     second = root;
+//                }
+//                prev = root;
+//                IP->right = NULL;
+//                root = root->right;
+//             }
+//         }
+//       }
+
+//       if(first != NULL && second != NULL) {
+//         int temp =first->val;
+//         first->val = second->val;
+//         second->val = temp;
+//       }
+//     }
+// };
+
+
+
+///Gfg:- Largest BST In a Binary Tree
+// class Solution {
+//   public:
+  
+//     class Info {
+//         public:
+//          int min, max, size;
+         
+//          Info(int minimum, int maximum, int sz) {
+//              min = minimum;
+//              max = maximum;
+//              size = sz;
+//          }
+//     };
+    
+//     Info helper(Node *root) {
+//         if(root == NULL) {
+//             return Info(INT_MAX, INT_MIN, 0);
+//         }
+        
+//         Info left = helper(root->left);
+//         Info right = helper(root->right);
+        
+//         if(root->data > left.max && root->data < right.min) {
+//             int currMin = min(root->data, left.min);
+//             int currMax = max(root->data, right.max);
+//             int currSize = left.size + right.size + 1;
+//             return Info(currMin, currMax, currSize);
+//         }
+        
+//         return Info(INT_MIN, INT_MAX, max(left.size, right.size));
+//     }
+    
+//     int largestBst(Node *root) {
+//         Info info = helper(root);
+//         return info.size;
+//     }
+// };
